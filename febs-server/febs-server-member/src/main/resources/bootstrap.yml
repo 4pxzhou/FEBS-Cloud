@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: FEBS-Server-Member
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: ${nacos.url}:8001
+        group: DEFAULT_GROUP
+        prefix: febs-server-member
+        file-extension: yaml
+        refreshable-dataids:
+      discovery:
+        server-addr: ${nacos.url}:8001
+  #隐藏Using default security password
+#  security:
+#    user:
+#      name: myOwnUser
+#      password: myOwnPassword
+#      role: ADMIN
+
+logging:
+  level:
+    com:
+      alibaba:
+        cloud:
+          nacos:
+            client:
+              NacosPropertySourceBuilder: error

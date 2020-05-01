@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.mrbird.febs.server.member.mapper.MemberMapper">
+
+    <resultMap id="member" type="cc.mrbird.febs.common.entity.member.Member">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="cellphone" jdbcType="VARCHAR" property="cellphone"/>
+        <result column="headimg" jdbcType="VARCHAR" property="headimg"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="sex" jdbcType="BIT" property="sex"/>
+        <result column="idcard" jdbcType="VARCHAR" property="idcard"/>
+        <result column="frontcardPhoto" jdbcType="VARCHAR" property="frontcardphoto"/>
+        <result column="height" jdbcType="TINYINT" property="height"/>
+        <result column="weight" jdbcType="TINYINT" property="weight"/>
+        <result column="nativeplace" jdbcType="VARCHAR" property="nativeplace"/>
+        <result column="workcity" jdbcType="VARCHAR" property="workcity"/>
+        <result column="status" jdbcType="BIT" property="status"/>
+        <result column="isverify" jdbcType="TINYINT" property="isverify"/>
+        <result column="isdivorce" jdbcType="BIT" property="isdivorce"/>
+        <result column="haschildern" jdbcType="BIT" property="haschildern"/>
+        <result column="hasroom" jdbcType="BIT" property="hasroom"/>
+        <result column="hascar" jdbcType="BIT" property="hascar"/>
+        <result column="marryad" jdbcType="VARCHAR" property="marryad"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="createtime" jdbcType="TIMESTAMP" property="createtime"/>
+    </resultMap>
+
+    <update id="passInfo" parameterType="int">
+        UPDATE t_member SET isverify = 1 WHERE id = #{id}
+    </update>
+
+    <update id="notPassInfo" parameterType="int">
+        UPDATE t_member SET isverify = 0 WHERE id = #{id}
+    </update>
+
+    <update id="forbidMember" parameterType="int">
+        UPDATE t_member SET status = false WHERE id = #{id}
+    </update>
+
+    <update id="enbaleMember" parameterType="int">
+        UPDATE t_member SET status = true WHERE id = #{id}
+    </update>
+</mapper>

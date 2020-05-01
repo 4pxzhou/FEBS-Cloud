@@ -1,0 +1,116 @@
+﻿{
+  "lstQuestion": [
+    {
+      "answera": "A：帮助想结婚的单身汉",
+      "answerb": "B：不知道",
+      "id": 1,
+      "question": "你知道本平台是做什么的吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：想",
+      "answerb": "B：不想",
+      "id": 2,
+      "question": "你想结婚吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：非常想",
+      "answerb": "B：想结婚都快想疯了",
+      "id": 3,
+      "question": "你有多想结婚？",
+      "rightanswer": "B"
+    },
+    {
+      "answera": "A：不太清楚，就是想结婚",
+      "answerb": "B：意味有了一个家一个港湾",
+      "id": 4,
+      "question": "你知道结婚的意味着什么吗？",
+      "rightanswer": "B"
+    },
+    {
+      "answera": "A：房子，车子，票子",
+      "answerb": "B：相信我准备好了好吗",
+      "id": 5,
+      "question": "你为结婚准备了些什么？",
+      "rightanswer": "B"
+    },
+    {
+      "answera": "A：想",
+      "answerb": "B：不想",
+      "id": 6,
+      "question": "你还想继续注册吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：真诚找结婚对象否则被举报活该",
+      "answerb": "B：不知道",
+      "id": 7,
+      "question": "你知道注册后意味着什么嘛？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：愿意",
+      "answerb": "B：不愿意",
+      "id": 8,
+      "question": "你愿意缴纳5万元的诚信保证金吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：可以",
+      "answerb": "B：不可以",
+      "id": 9,
+      "question": "每月只能查看一人的联系方式并需要付费",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：愿意",
+      "answerb": "B：不愿意",
+      "id": 10,
+      "question": "注册信息时你愿意填写你的身份证号吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：会",
+      "answerb": "B：不会",
+      "id": 11,
+      "question": "注册信息时你会上传素颜照片吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：能",
+      "answerb": "B：不能",
+      "id": 12,
+      "question": "你能保证你注册时所填信息都真实可靠吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：同意",
+      "answerb": "B：不同意",
+      "id": 13,
+      "question": "被举报永久封禁账号并报警你同意吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：同意",
+      "answerb": "B：不同意",
+      "id": 14,
+      "question": "被举报不退诚信保证金同意吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：请相信我",
+      "answerb": "B：请不要相信我",
+      "id": 15,
+      "question": "我们可以相信你吗？",
+      "rightanswer": "A"
+    },
+    {
+      "answera": "A：很好",
+      "answerb": "B：非常好",
+      "id": 16,
+      "question": "我们目标是让都想结婚的你们在一起一辈子",
+      "rightanswer": "B"
+    }
+  ]
+}
