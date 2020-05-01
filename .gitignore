@@ -4,4 +4,5 @@
 **/log/
 **/*.iml
 /febs-cloud/.txlcn/
-**/spy.log
+**/spy.log.txlcn 
+/.txlcn
