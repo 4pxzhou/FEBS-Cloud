@@ -1,34 +1,33 @@
 package cc.mrbird.febs.server.member.aspect;
 
-import cc.mrbird.febs.common.annotation.ControllerEndpoint;
-import cc.mrbird.febs.common.exception.FebsException;
-import cc.mrbird.febs.common.utils.FebsUtil;
-import cc.mrbird.febs.common.utils.HttpContextUtil;
+import cc.mrbird.febs.common.core.exception.FebsException;
+import cc.mrbird.febs.common.core.utils.FebsUtil;
+
+import cc.mrbird.febs.server.member.annotation.ControllerEndpoint;
 import cc.mrbird.febs.server.member.service.ILogService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
 /**
  * @author MrBird
  */
 @Aspect
+@Slf4j
 @Component
-public class ControllerEndpointAspect extends AspectSupport {
+@RequiredArgsConstructor
+public class ControllerEndpointAspect extends BaseAspectSupport {
 
-    @Autowired
-    private ILogService logService;
+    private final ILogService logService;
 
-    @Pointcut("@annotation(cc.mrbird.febs.common.annotation.ControllerEndpoint)")
+    @Pointcut("@annotation(cc.mrbird.febs.server.member.annotation.ControllerEndpoint)")
     public void pointcut() {
     }
 
@@ -42,13 +41,13 @@ public class ControllerEndpointAspect extends AspectSupport {
         try {
             result = point.proceed();
             if (StringUtils.isNotBlank(operation)) {
-                HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
-                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-                String username = (String) authentication.getPrincipal();
-                logService.saveLog(point, targetMethod, request, operation, username, start);
+                String username = FebsUtil.getCurrentUsername();
+                String ip = FebsUtil.getHttpServletRequestIpAddress();
+                logService.saveLog(point, targetMethod, ip, operation, username, start);
             }
             return result;
         } catch (Throwable throwable) {
+            log.error(throwable.getMessage(), throwable);
             String exceptionMessage = annotation.exceptionMessage();
             String message = throwable.getMessage();
             String error = FebsUtil.containChinese(message) ? exceptionMessage + "，" + message : exceptionMessage;

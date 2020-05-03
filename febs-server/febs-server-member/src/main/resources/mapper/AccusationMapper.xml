@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cc.mrbird.febs.server.member.mapper.AccusationMapper">
-
-    <resultMap id="accusation" type="cc.mrbird.febs.common.entity.member.Accusation">
+    <resultMap id="accusation" type="cc.mrbird.febs.common.core.entity.member.Accusation">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="hmid" jdbcType="INTEGER" property="hmid"/>
         <result column="umid" jdbcType="INTEGER" property="umid"/>

@@ -1,11 +1,11 @@
 package cc.mrbird.febs.server.member.service.impl;
 
 
-import cc.mrbird.febs.common.entity.QueryRequest;
-import cc.mrbird.febs.common.entity.constant.FebsConstant;
-import cc.mrbird.febs.common.entity.system.Log;
-import cc.mrbird.febs.common.utils.ServletRequestIPUtil;
-import cc.mrbird.febs.common.utils.SortUtil;
+import cc.mrbird.febs.common.core.entity.QueryRequest;
+import cc.mrbird.febs.common.core.entity.constant.FebsConstant;
+import cc.mrbird.febs.common.core.entity.system.Log;
+import cc.mrbird.febs.common.core.utils.SortUtil;
+
 import cc.mrbird.febs.server.member.mapper.LogMapper;
 import cc.mrbird.febs.server.member.service.ILogService;
 import cc.mrbird.febs.server.member.utils.AddressUtil;
@@ -14,16 +14,13 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -32,11 +29,10 @@ import java.util.*;
  * @author MrBird
  */
 @Service
-@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+@RequiredArgsConstructor
 public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogService {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
     @Override
     public IPage<Log> findLogs(Log log, QueryRequest request) {
@@ -64,16 +60,14 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
     }
 
     @Override
-    @Transactional
     public void deleteLogs(String[] logIds) {
         List<String> list = Arrays.asList(logIds);
         baseMapper.deleteBatchIds(list);
     }
 
     @Override
-    public void saveLog(ProceedingJoinPoint point, Method method, HttpServletRequest request, String operation, String username, long start) {
+    public void saveLog(ProceedingJoinPoint point, Method method, String ip, String operation, String username, long start) {
         Log log = new Log();
-        String ip = ServletRequestIPUtil.getIpAddr(request);
         log.setIp(ip);
 
         log.setUsername(username);
@@ -98,6 +92,7 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements ILogS
         save(log);
     }
 
+    @SuppressWarnings("all")
     private StringBuilder handleParams(StringBuilder params, Object[] args, List paramNames) {
         try {
             for (int i = 0; i < args.length; i++) {

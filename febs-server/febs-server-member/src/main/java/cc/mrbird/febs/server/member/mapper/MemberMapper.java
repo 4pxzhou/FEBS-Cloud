@@ -1,10 +1,8 @@
 package cc.mrbird.febs.server.member.mapper;
 
-import cc.mrbird.febs.common.entity.member.Member;
-import cc.mrbird.febs.server.member.controller.app.vo.MemberVo;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+import cc.mrbird.febs.common.core.entity.member.Member;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * 会员表 Mapper

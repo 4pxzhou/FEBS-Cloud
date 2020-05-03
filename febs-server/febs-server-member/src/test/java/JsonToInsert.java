@@ -1,11 +1,10 @@
-import cc.mrbird.febs.common.entity.member.Question;
+import cc.mrbird.febs.common.core.entity.member.Question;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 

@@ -1,7 +1,7 @@
 package cc.mrbird.febs.server.member.service.impl;
 
-import cc.mrbird.febs.common.entity.QueryRequest;
-import cc.mrbird.febs.common.entity.member.Accusation;
+import cc.mrbird.febs.common.core.entity.QueryRequest;
+import cc.mrbird.febs.common.core.entity.member.Accusation;
 import cc.mrbird.febs.server.member.mapper.AccusationMapper;
 import cc.mrbird.febs.server.member.service.IAccusationService;
 import org.springframework.stereotype.Service;

@@ -1,21 +1,23 @@
 package cc.mrbird.febs.server.member.controller;
 
-import cc.mrbird.febs.common.annotation.ControllerEndpoint;
-import cc.mrbird.febs.common.entity.FebsResponse;
-import cc.mrbird.febs.common.entity.QueryRequest;
-import cc.mrbird.febs.common.entity.member.Accusation;
-import cc.mrbird.febs.common.entity.member.Member;
-import cc.mrbird.febs.common.exception.FebsException;
-import cc.mrbird.febs.common.utils.FebsUtil;
+
+
+import cc.mrbird.febs.common.core.entity.FebsResponse;
+import cc.mrbird.febs.common.core.entity.QueryRequest;
+import cc.mrbird.febs.common.core.entity.member.Accusation;
+import cc.mrbird.febs.common.core.entity.member.Member;
+import cc.mrbird.febs.common.core.exception.FebsException;
+import cc.mrbird.febs.common.core.utils.FebsUtil;
+import cc.mrbird.febs.server.member.annotation.ControllerEndpoint;
 import cc.mrbird.febs.server.member.service.IAccusationService;
 import cc.mrbird.febs.server.member.service.IMemberService;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -79,7 +81,7 @@ public class MemberController {
     @ControllerEndpoint(operation = "启用Member信息",exceptionMessage = "启用Memeber信息失败")
     public void enbaleMember(Integer id) throws FebsException {
         List<Accusation> lstAccusation = this.accusationService.findByHmid(id);
-        if (lstAccusation == null || lstAccusation.size() == 0) {
+        if (CollectionUtils.isNotEmpty(lstAccusation)) {
             this.memberService.enbaleMember(id);
         } else {
             throw new FebsException("该用户被举报，不可启用");

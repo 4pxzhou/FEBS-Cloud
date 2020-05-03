@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cc.mrbird.febs.server.member.mapper.QuestionMapper">
-    <resultMap id="question" type="cc.mrbird.febs.common.entity.member.Question">
+    <resultMap id="question" type="cc.mrbird.febs.common.core.entity.member.Question">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="question" jdbcType="VARCHAR" property="question"/>
         <result column="answera" jdbcType="VARCHAR" property="answera"/>
         <result column="answerb" jdbcType="VARCHAR" property="answerb"/>
         <result column="rightanswer" jdbcType="CHAR" property="rightanswer"/>
     </resultMap>
-    <select id="findByQuestion" parameterType="string" resultType="cc.mrbird.febs.common.entity.member.Question">
+    <select id="findByQuestion" parameterType="string" resultMap="question">
         SELECT id FROM t_question WHERE question = #{question}
     </select>
 </mapper>

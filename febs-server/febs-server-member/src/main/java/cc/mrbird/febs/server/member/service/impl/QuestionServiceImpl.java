@@ -1,7 +1,7 @@
 package cc.mrbird.febs.server.member.service.impl;
 
-import cc.mrbird.febs.common.entity.QueryRequest;
-import cc.mrbird.febs.common.entity.member.Question;
+import cc.mrbird.febs.common.core.entity.QueryRequest;
+import cc.mrbird.febs.common.core.entity.member.Question;
 import cc.mrbird.febs.server.member.mapper.QuestionMapper;
 import cc.mrbird.febs.server.member.service.IQuestionService;
 import org.apache.commons.lang3.StringUtils;

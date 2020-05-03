@@ -1,5 +1,6 @@
-import cc.mrbird.febs.common.entity.member.Question;
 
+
+import cc.mrbird.febs.common.core.entity.member.Question;
 
 import java.io.Serializable;
 import java.util.List;

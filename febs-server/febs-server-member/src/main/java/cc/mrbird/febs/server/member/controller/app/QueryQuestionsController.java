@@ -1,7 +1,7 @@
 package cc.mrbird.febs.server.member.controller.app;
 
-import cc.mrbird.febs.common.annotation.ControllerEndpoint;
-import cc.mrbird.febs.common.entity.member.Question;
+import cc.mrbird.febs.common.core.entity.member.Question;
+import cc.mrbird.febs.server.member.annotation.ControllerEndpoint;
 import cc.mrbird.febs.server.member.service.IQuestionService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 /**

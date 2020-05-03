@@ -17,6 +17,15 @@ spring:
 #      name: myOwnUser
 #      password: myOwnPassword
 #      role: ADMIN
+febs:
+  cloud:
+    security:
+      enable: true
+      anon-uris: /app/member/**,/app/question
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://${febs-gateway}:8301/auth/user
 
 logging:
   level:

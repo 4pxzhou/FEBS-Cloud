@@ -1,22 +1,22 @@
 package cc.mrbird.febs.server.member;
 
-import cc.mrbird.febs.common.annotation.FebsCloudApplication;
+import cc.mrbird.febs.common.security.starter.annotation.EnableFebsCloudResourceServer;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableAsync
 @SpringBootApplication
-@FebsCloudApplication
+@EnableFebsCloudResourceServer
 @EnableTransactionManagement
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 @MapperScan("cc.mrbird.febs.server.member.mapper")
 public class FebsServerMemberApplication {
-
     public static void main(String[] args) {
-        SpringApplication.run(FebsServerMemberApplication.class, args);
+        new SpringApplicationBuilder(FebsServerMemberApplication.class)
+                .web(WebApplicationType.SERVLET)
+                .run(args);
     }
 }

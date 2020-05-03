@@ -1,8 +1,9 @@
 package cc.mrbird.febs.server.member.service.impl;
 
 
-import cc.mrbird.febs.common.entity.QueryRequest;
-import cc.mrbird.febs.common.entity.member.Order;
+
+import cc.mrbird.febs.common.core.entity.QueryRequest;
+import cc.mrbird.febs.common.core.entity.member.Order;
 import cc.mrbird.febs.server.member.mapper.OrderMapper;
 import cc.mrbird.febs.server.member.service.IOrderService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

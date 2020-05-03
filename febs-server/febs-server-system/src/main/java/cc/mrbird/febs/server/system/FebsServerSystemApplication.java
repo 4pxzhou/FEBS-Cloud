@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author MrBird
+ * @author
  */
 @EnableAsync
 @SpringBootApplication
@@ -19,7 +19,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableDistributedTransaction
 @MapperScan("cc.mrbird.febs.server.system.mapper")
 public class FebsServerSystemApplication {
-
     public static void main(String[] args) {
         new SpringApplicationBuilder(FebsServerSystemApplication.class)
                 .web(WebApplicationType.SERVLET)

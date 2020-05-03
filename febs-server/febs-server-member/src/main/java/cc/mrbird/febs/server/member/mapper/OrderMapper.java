@@ -1,6 +1,7 @@
 package cc.mrbird.febs.server.member.mapper;
 
-import cc.mrbird.febs.common.entity.member.Order;
+
+import cc.mrbird.febs.common.core.entity.member.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

@@ -1,6 +1,6 @@
 package cc.mrbird.febs.server.member.mapper;
 
-import cc.mrbird.febs.common.entity.member.Question;
+import cc.mrbird.febs.common.core.entity.member.Question;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

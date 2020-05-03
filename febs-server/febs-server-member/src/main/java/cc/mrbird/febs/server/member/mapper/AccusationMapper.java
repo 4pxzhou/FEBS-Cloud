@@ -1,6 +1,6 @@
 package cc.mrbird.febs.server.member.mapper;
 
-import cc.mrbird.febs.common.entity.member.Accusation;
+import cc.mrbird.febs.common.core.entity.member.Accusation;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.io.Serializable;
